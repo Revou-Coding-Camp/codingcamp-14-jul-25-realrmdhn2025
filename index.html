@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VINTORA</title>
+
+  <!-- Tailwind & DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.0/dist/full.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-[#F5EFE6] font-[Poppins]">
+
+  <!-- HEADER (hidden before login) -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-white/70 border-b border-[#e5e5e5] shadow-xl hidden">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#" class="text-3xl font-extrabold font-[Montserrat] text-[#2C3A35] tracking-widest">VINTORA</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[#2C3A35]">
+        <a onclick="scrollToSection('main-section')" class="hover:underline">Home</a>
+        <a onclick="scrollToSection('profile-section')" class="hover:underline">Profile</a>
+        <a onclick="scrollToSection('contact-section')" class="hover:underline">Contact</a>
+        <button onclick="logout()" class="btn btn-sm bg-[#2C3A35] hover:bg-[#1e2824] text-white px-6 rounded-full">Logout</button>
+      </nav>
+      <details class="dropdown md:hidden">
+        <summary class="btn btn-ghost">☰</summary>
+        <ul class="p-3 shadow menu dropdown-content bg-white rounded-box w-52 text-[#2C3A35]">
+          <li><a onclick="scrollToSection('main-section')">Home</a></li>
+          <li><a onclick="scrollToSection('profile-section')">Profile</a></li>
+          <li><a onclick="scrollToSection('contact-section')">Contact</a></li>
+          <li><a onclick="logout()">Logout</a></li>
+        </ul>
+      </details>
+    </div>
+  </header>
+
+  <!-- LOGIN SECTION -->
+  <section id="login-section" class="min-h-screen flex items-center justify-center px-6 py-24 text-center relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#D6BA73]/10 via-white to-[#F5EFE6] opacity-90"></div>
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1589571894960-20bbe2828d0d?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-10"></div>
+    <div class="relative max-w-4xl w-full p-12 glass-card shadow-2xl rounded-3xl backdrop-blur-lg" data-aos="zoom-in">
+      <h1 class="text-6xl font-extrabold text-[#2C3A35] font-[Montserrat] leading-tight mb-6">
+        Welcome to <span class="text-[#D6BA73] animate-pulse">VINTORA</span>
+      </h1>
+      <p class="text-[#2C3A35]/80 text-lg mb-10">Enter your name to unlock the future of visual identity.</p>
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+        <input type="text" id="username" placeholder="Enter your name" class="input input-bordered input-lg w-full max-w-xs input-custom" />
+        <button id="login-btn" class="btn btn-lg bg-[#2C3A35] text-white hover:bg-[#1e2824] shadow-lg btn-custom">LOGIN</button>
+      </div>
+      <div class="mt-8 text-sm text-[#6b6b6b] italic animate-pulse-soft">Let's turn your vision into real art 🖌️</div>
+    </div>
+  </section>
+
+  <!-- PAGE CONTENT -->
+  <main id="page-content" class="hidden">
+
+    <!-- GREETING -->
+    <section id="main-section" class="px-6 py-24 text-center bg-white/70 backdrop-blur-sm rounded-t-3xl">
+      <h2 class="text-5xl font-bold text-[#2C3A35] font-[Montserrat] mb-4">Hi, <span id="user-name">...</span> 👋</h2>
+      <p class="text-[#6b6b6b] text-lg max-w-2xl mx-auto">Let’s explore the visual world of VINTORA together.</p>
+    </section>
+
+    <!-- PROFILE SECTION -->
+    <section id="profile-section" class="py-28 px-6 bg-[#fff] relative z-10">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div data-aos="fade-right">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="VINTORA" class="rounded-xl shadow-2xl w-full transform hover:scale-105 transition duration-500" />
+        </div>
+        <div class="space-y-6 text-[#2C3A35]" data-aos="fade-left">
+          <h2 class="text-4xl font-bold font-[Montserrat]">Who We Are?</h2>
+          <p class="text-lg leading-relaxed">VINTORA is a creative branding studio transforming ideas into visuals. We believe in <strong>"Vision Into Real Art"</strong>.</p>
+          <div>
+            <h3 class="text-2xl font-semibold">Our Vision</h3>
+            <p class="mt-1">To become a visual brand that turns client ideas into strong designs.</p>
+          </div>
+          <div>
+            <h3 class="text-2xl font-semibold">Our Mission</h3>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+              <li>Visualize ideas into impactful visuals</li>
+              <li>Narrative-driven & detail-oriented designs</li>
+              <li>Trusted partner across segments</li>
+              <li>Educate visual identity’s importance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact-section" class="bg-[#F5EFE6] px-6 py-24 relative">
+      <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl p-12" data-aos="fade-up">
+        <h3 class="text-3xl font-semibold mb-6 text-[#2C3A35] text-center">Send Us a Message</h3>
+        <form id="contact-form" class="flex flex-col gap-6">
+          <input type="text" id="full-name" placeholder="Full Name" class="input input-bordered input-lg w-full" required />
+          <input type="email" id="email" placeholder="Email Address" class="input input-bordered input-lg w-full" required />
+          <textarea id="message" class="textarea textarea-bordered w-full" rows="4" placeholder="Your Message" required></textarea>
+          <button type="submit" class="btn bg-[#2C3A35] text-white hover:bg-[#1e2824] btn-lg w-fit self-end px-10 shadow-lg">Submit</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="main-footer" class="bg-[#2C3A35] text-[#F5EFE6] pt-20 pb-12 px-6 hidden">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left">
+      <div class="space-y-4">
+        <h4 class="text-3xl font-extrabold text-white font-[Montserrat]">VINTORA</h4>
+        <p class="text-base text-[#DDB6B1] leading-relaxed">Vision Into Real Art — bridging your ideas into visuals that speak.</p>
+      </div>
+      <div class="space-y-3">
+        <h5 class="text-xl font-semibold text-white uppercase tracking-wide">Explore</h5>
+        <ul class="space-y-1 text-[#F5EFE6]/90">
+          <li><a onclick="scrollToSection('main-section')" class="hover:text-[#D6BA73] transition">Home</a></li>
+          <li><a onclick="scrollToSection('profile-section')" class="hover:text-[#D6BA73] transition">Profile</a></li>
+          <li><a onclick="scrollToSection('contact-section')" class="hover:text-[#D6BA73] transition">Contact</a></li>
+        </ul>
+      </div>
+      <div class="space-y-3">
+        <h5 class="text-xl font-semibold text-white uppercase tracking-wide">Connect</h5>
+        <p class="text-[#F5EFE6]/90">📩 vintoradesign@gmail.com</p>
+        <p class="text-[#F5EFE6]/90">📸 Instagram: <a href="https://www.instagram.com/vintora.design/" target="_blank" class="transition text-[#F5EFE6]/90 hover:text-[#D6BA73]">@vintora.design</a></p>
+      </div>
+      <div class="flex flex-col items-center md:items-start gap-3">
+        <h5 class="text-xl font-semibold text-white uppercase tracking-wide">Join Us</h5>
+        <button class="btn btn-sm bg-[#D6BA73] hover:bg-[#c2a350] text-[#2C3A35] rounded-full font-bold px-6 shadow-md">Subscribe</button>
+        <p class="text-xs text-[#DDB6B1] italic">Stay inspired. Get exclusive updates.</p>
+      </div>
+    </div>
+    <div class="text-center text-sm text-[#DDB6B1] mt-12 border-t border-[#F5EFE6]/10 pt-6">© 2025 VINTORA. All rights reserved.</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>
