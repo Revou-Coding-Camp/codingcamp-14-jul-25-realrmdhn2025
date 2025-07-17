@@ -153,3 +153,23 @@ body::-webkit-scrollbar-thumb {
   opacity: 1;
   pointer-events: auto;
 }
+
+#parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+  z-index: -2;
+}
+
+.input-error {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.2);
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  padding-left: 0.5rem;
+  font-weight: 500;
+}

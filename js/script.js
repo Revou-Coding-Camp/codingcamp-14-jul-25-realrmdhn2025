@@ -119,8 +119,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!name || !email || !message) {
       alert("⚠️ Please fill in all fields.");
+      return;
+    }
+
+    const emailInput = document.getElementById("email");
+    const emailErrorMsg = document.getElementById("email-error-msg");
+
+    if (!emailRegex.test(email)) {
+      emailInput.classList.add("input-error");
+      emailErrorMsg.textContent = "⚠️ Please enter a valid email address";
+      emailErrorMsg.classList.remove("hidden");
+      emailInput.focus();
       return;
     }
 
@@ -141,6 +154,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     form.reset();
+  });
+
+  const emailInput = document.getElementById("email");
+  const emailErrorMsg = document.getElementById("email-error-msg");
+
+  emailInput?.addEventListener("input", () => {
+    emailInput.classList.remove("input-error");
+    if (emailErrorMsg) {
+      emailErrorMsg.classList.add("hidden");
+      emailErrorMsg.textContent = "";
+    }
   });
 
   // === SCROLL HEADER SHADOW ===
@@ -169,6 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h3 class="text-xl font-semibold text-[#2C3A35]">Subscribe to VINTORA</h3>
         <p class="text-sm text-gray-500">Stay in the loop with the latest updates and inspiration!</p>
         <input type="email" id="modal-subscribe-email" placeholder="Your email" class="input input-bordered w-full" />
+        <p id="modal-subscribe-error" class="text-red-500 text-sm mt-1 hidden">⚠️ Please enter a valid email address</p>
         <button id="modal-subscribe-btn" class="btn bg-[#2C3A35] hover:bg-[#1e2824] text-white w-full">Subscribe</button>
         <button class="text-sm text-[#D6BA73] underline mt-2" id="close-sub-modal">Cancel</button>
       </div>
@@ -183,12 +208,20 @@ document.addEventListener("DOMContentLoaded", () => {
       subModal.remove();
     });
 
+    const emailError = document.getElementById("modal-subscribe-error");
+
+    emailInput.addEventListener("input", () => {
+      emailInput.classList.remove("input-error");
+      emailError.classList.add("hidden");
+    });
+
     confirmBtn?.addEventListener("click", () => {
       const email = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if (!email || !email.includes("@") || !email.includes(".")) {
+      if (!emailRegex.test(email)) {
         emailInput.classList.add("input-error");
-        emailInput.placeholder = "Please enter a valid email!";
+        emailError.classList.remove("hidden");
         emailInput.focus();
         return;
       }
@@ -211,6 +244,14 @@ document.addEventListener("DOMContentLoaded", () => {
       subModal.remove();
     });
   });
+
+  const parallaxBg = document.getElementById("parallax-bg");
+  if (parallaxBg) {
+    window.addEventListener("scroll", () => {
+      const offset = window.scrollY;
+      parallaxBg.style.transform = `translateY(${offset * 0.3}px)`;
+    });
+  }
 });
 
 window.addEventListener("load", () => {
