@@ -53,8 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const spinner = document.getElementById("loading-spinner");
+    spinner?.classList.remove("hidden");
+
     localStorage.setItem("vintoraUsername", name);
-    showMainContent(name);
+
+    setTimeout(() => {
+      spinner?.classList.add("hidden");
+      showMainContent(name);
+    }, 1000);
   });
 
   // === RESET INPUT ERROR ===
@@ -95,8 +102,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("confirm-logout").addEventListener("click", () => {
-      localStorage.removeItem("vintoraUsername");
-      location.reload();
+      const spinner = document.getElementById("loading-spinner");
+      spinner?.classList.remove("hidden");
+
+      setTimeout(() => {
+        localStorage.removeItem("vintoraUsername");
+        location.reload();
+      }, 1000);
     });
   };
 
@@ -199,4 +211,14 @@ document.addEventListener("DOMContentLoaded", () => {
       subModal.remove();
     });
   });
+});
+
+window.addEventListener("load", () => {
+  const globalLoader = document.getElementById("global-loader");
+  if (globalLoader) {
+    globalLoader.classList.add("opacity-0");
+    setTimeout(() => {
+      globalLoader.style.display = "none";
+    }, 700);
+  }
 });

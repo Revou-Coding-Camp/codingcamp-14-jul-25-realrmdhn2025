@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VINTORA</title>
+  <link rel="icon" href="res/logo.png" type="image/png">
 
   <!-- Tailwind & DaisyUI -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.0/dist/full.css" rel="stylesheet" />
@@ -25,22 +26,26 @@
   <!-- HEADER (hidden before login) -->
   <header id="main-header" class="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-white/70 border-b border-[#e5e5e5] shadow-xl hidden">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-      <a href="#" class="text-3xl font-extrabold font-[Montserrat] text-[#2C3A35] tracking-widest">VINTORA</a>
+      <a href="/" class="flex items-center gap-3">
+        <img src="res/logo.png" alt="VINTORA Logo" class="h-10 w-auto transition-all duration-300 hover:scale-105 drop-shadow-sm">
+        <span class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-wide text-[#2C3A35] font-[Montserrat]">VINTORA</span>
+      </a>
       <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[#2C3A35]">
         <a onclick="scrollToSection('main-section')" class="hover:underline">Home</a>
         <a onclick="scrollToSection('profile-section')" class="hover:underline">Profile</a>
         <a onclick="scrollToSection('contact-section')" class="hover:underline">Contact</a>
         <button onclick="logout()" class="btn btn-sm bg-[#2C3A35] hover:bg-[#1e2824] text-white px-6 rounded-full">Logout</button>
       </nav>
-      <details class="dropdown md:hidden">
-        <summary class="btn btn-ghost">☰</summary>
-        <ul class="p-3 shadow menu dropdown-content bg-white rounded-box w-52 text-[#2C3A35]">
-          <li><a onclick="scrollToSection('main-section')">Home</a></li>
-          <li><a onclick="scrollToSection('profile-section')">Profile</a></li>
-          <li><a onclick="scrollToSection('contact-section')">Contact</a></li>
-          <li><a onclick="logout()">Logout</a></li>
+
+      <div class="dropdown dropdown-end md:hidden">
+        <label tabindex="0" class="btn btn-ghost text-xl">☰</label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1000] p-4 shadow-xl bg-white rounded-box w-56 text-[#2C3A35] font-medium">
+          <li><a onclick="scrollToSection('main-section')" class="hover:text-[#D6BA73]">Home</a></li>
+          <li><a onclick="scrollToSection('profile-section')" class="hover:text-[#D6BA73]">Profile</a></li>
+          <li><a onclick="scrollToSection('contact-section')" class="hover:text-[#D6BA73]">Contact</a></li>
+          <li><a onclick="logout()" class="hover:text-red-600">Logout</a></li>
         </ul>
-      </details>
+      </div>
     </div>
   </header>
 
@@ -65,9 +70,22 @@
   <main id="page-content" class="hidden">
 
     <!-- GREETING -->
-    <section id="main-section" class="px-6 py-24 text-center bg-white/70 backdrop-blur-sm rounded-t-3xl">
-      <h2 class="text-5xl font-bold text-[#2C3A35] font-[Montserrat] mb-4">Hi, <span id="user-name">...</span> 👋</h2>
-      <p class="text-[#6b6b6b] text-lg max-w-2xl mx-auto">Let’s explore the visual world of VINTORA together.</p>
+    <section id="main-section" class="relative overflow-hidden px-4 sm:px-6 py-32 md:py-44 text-center bg-white/70 backdrop-blur-sm rounded-t-3xl shadow-2xl isolate">
+      <div class="absolute -top-96 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#D6BA73]/20 rounded-full blur-[200px] opacity-60 z-[-1]"></div>
+
+      <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="1200">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#2C3A35] font-[Montserrat] text-shadow-soft tracking-wide animate-fade-in">Hi, <span id="user-name">...</span> 👋</h2>
+
+        <div class="w-16 sm:w-20 h-[3px] bg-[var(--soft-gold)] rounded-full mx-auto mt-8 mb-8 animate-pulse-soft"></div>
+        
+        <p class="text-base sm:text-lg md:text-xl text-[#6b6b6b] max-w-xl mx-auto fade-in-up delay-200"> Let’s explore the visual world of <span class="font-semibold text-[#2C3A35]">VINTORA</span> together</p>
+
+        <!-- CTA BUTTONS -->
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-300">
+          <button onclick="scrollToSection('profile-section')" class="btn border border-[#2C3A35] text-[#2C3A35] px-8 py-3 rounded-full hover:bg-[#2C3A35] hover:text-white transition-transform hover:scale-105 shadow-md">Explore Profile</button>
+          <button onclick="scrollToSection('contact-section')" class="btn border border-[#2C3A35] text-[#2C3A35] px-8 py-3 rounded-full hover:bg-[#2C3A35] hover:text-white transition-transform hover:scale-105 shadow-md">Get in Touch</button>
+        </div>
+      </div>
     </section>
 
     <!-- PROFILE SECTION -->
@@ -139,6 +157,15 @@
     </div>
     <div class="text-center text-sm text-[#DDB6B1] mt-12 border-t border-[#F5EFE6]/10 pt-6">© 2025 VINTORA. All rights reserved.</div>
   </footer>
+
+  <!-- LOADING SPINER -->
+  <div id="loading-spinner" class="fixed inset-0 bg-[#F5EFE6]/80 z-[9999] hidden flex items-center justify-center backdrop-blur-sm transition-opacity duration-300">
+    <div class="w-16 h-16 border-4 border-t-transparent border-[#2C3A35] rounded-full animate-spin"></div>
+  </div>
+
+  <div id="global-loader" class="fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-opacity duration-700">
+    <div class="w-14 h-14 border-4 border-t-transparent border-[#D6BA73] rounded-full animate-spin"></div>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>

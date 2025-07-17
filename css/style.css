@@ -120,3 +120,36 @@ body::-webkit-scrollbar-thumb {
 .link-hover-glow:hover {
   color: var(--soft-gold);
 }
+
+.menu li a {
+  position: relative;
+  transition: all 0.25s ease-in-out;
+}
+
+.menu li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--soft-gold);
+  transition: width 0.3s;
+}
+
+.menu li a:hover::after {
+  width: 100%;
+}
+
+.text-shadow-soft {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+#loading-spinner {
+  opacity: 0;
+  pointer-events: none;
+}
+#loading-spinner:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
