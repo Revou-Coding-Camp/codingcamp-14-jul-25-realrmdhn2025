@@ -263,3 +263,7 @@ window.addEventListener("load", () => {
     }, 700);
   }
 });
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
