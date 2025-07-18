@@ -23,6 +23,23 @@
   animation: pulseSoft 2.5s infinite ease-in-out;
 }
 
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fade-in-slow {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-slow {
+  animation: fade-in-slow 2s ease-out forwards;
+}
+
 .glass-card {
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(15px);
@@ -67,9 +84,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .menu-underline a:hover {
-  color: #D6BA73; /* warna aksen VINTORA */
+  color: #D6BA73;
   transform: scale(1.05);
-  text-shadow: 0 1px 6px rgba(214, 186, 115, 0.4); /* efek glow lembut */
+  text-shadow: 0 1px 6px rgba(214, 186, 115, 0.4);
 }
 
 .menu-underline a::after {
@@ -235,4 +252,71 @@ body::-webkit-scrollbar-thumb {
 .navbar-fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.profile-glow {
+  box-shadow: 0 0 30px rgba(221, 182, 177, 0.5);
+  transition: all 0.4s ease-in-out;
+}
+.profile-glow:hover {
+  box-shadow: 0 0 60px rgba(221, 182, 177, 0.9);
+  transform: scale(1.02);
+}
+
+.bg-wave {
+  background-image: radial-gradient(circle at 20% 20%, #DDB6B1 0%, transparent 40%),
+                    radial-gradient(circle at 80% 80%, #C6DED9 0%, transparent 40%);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.fancy-badge {
+  display: inline-block;
+  background: linear-gradient(to right, #D6BA73, #C6DED9);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: #2C3A35;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+.fancy-badge:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.animated-line {
+  height: 4px;
+  background: linear-gradient(90deg, #D6BA73, #DDB6B1);
+  width: 0%;
+  animation: expandLine 2s ease forwards;
+}
+
+@keyframes expandLine {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.typewriter-heading {
+  min-height: 1.2em; /* Tahan tinggi heading agar ga lenyap */
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #2C3A35; /* Bisa diganti cursor blinking animasi */
+  animation: blinkCursor 0.8s step-end infinite;
+}
+
+@keyframes blinkCursor {
+  from, to { border-color: transparent; }
+  50% { border-color: #2C3A35; }
+}
+
+@keyframes ping-slow {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

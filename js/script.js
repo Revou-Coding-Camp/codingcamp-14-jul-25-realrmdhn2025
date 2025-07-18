@@ -273,6 +273,45 @@ document.addEventListener("DOMContentLoaded", () => {
       dropdownMenu?.classList.add("hidden");
     });
   });
+
+  const profileHeading = document.getElementById("profile-heading");
+  const typewriterText = "Who We Are?";
+  let i = 0;
+  let isDeleting = false;
+
+  function loopTypewriter() {
+    if (!profileHeading) return;
+
+    let currentText = profileHeading.textContent;
+
+    if (!isDeleting && i < typewriterText.length) {
+      profileHeading.textContent += typewriterText.charAt(i);
+      i++;
+      setTimeout(loopTypewriter, 100);
+    } else if (isDeleting && i >= 0) {
+      profileHeading.textContent = typewriterText.substring(0, i);
+      i--;
+      setTimeout(loopTypewriter, 60);
+    } else {
+      isDeleting = !isDeleting;
+      setTimeout(loopTypewriter, isDeleting ? 1000 : 500);
+    }
+  }
+
+  if (profileHeading) {
+    profileHeading.textContent = "";
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          loopTypewriter();
+          observer.unobserve(profileHeading);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(profileHeading);
+  }
 });
 
 window.addEventListener("load", () => {
