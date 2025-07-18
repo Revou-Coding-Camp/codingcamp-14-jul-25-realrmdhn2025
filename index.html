@@ -300,57 +300,74 @@
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact-section" class="bg-[#F5EFE6] px-6 py-24 relative">
-      <div class="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl p-12" data-aos="fade-up">
-        <h3 class="text-3xl font-semibold mb-6 text-[#2C3A35] text-center">Send Us a Message</h3>
-        <form id="contact-form" class="flex flex-col gap-6">
-          <input type="text" id="full-name" placeholder="Full Name" class="input input-bordered input-lg w-full" required />
-
-          <div>
-            <input type="email" id="email" placeholder="Email Address" class="input input-bordered input-lg w-full transition-all duration-300" required />
-            <p id="email-error-msg" class="text-red-600 text-sm mt-2 hidden">⚠️ Please enter a valid email address</p>
+    <section id="contact-section" class="relative bg-[#F5EFE6] overflow-hidden py-24 px-6">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="w-full md:w-1/2 relative">
+          <div class="bg-wave p-10 rounded-3xl shadow-soft animate-float">
+            <h3 class="text-3xl md:text-4xl font-bold text-[#2C3A35] mb-4">Let's Create Something <span class="text-gradient">Magical</span> Together</h3>
+            <p class="text-[#2C3A35]/80 text-lg font-medium leading-relaxed">Have questions, ideas, or just want to say hi? Drop us a message—we’d love to hear from you!</p>
           </div>
+        </div>
 
-          <textarea id="message" class="textarea textarea-bordered w-full" rows="4" placeholder="Your Message" required></textarea>
-          <button type="submit" class="btn bg-[#2C3A35] text-white hover:bg-[#1e2824] btn-lg w-fit self-end px-10 shadow-lg">Submit</button>
-        </form>
+        <div class="w-full md:w-1/2">
+          <div class="glass-card animate-fade-in-slow">
+            <form id="contact-form" class="flex flex-col gap-6">
+              <input type="text" id="full-name" placeholder="Full Name" class="input input-bordered input-lg w-full" required />
+
+              <div>
+                <input type="email" id="email" placeholder="Email Address" class="input input-bordered input-lg w-full transition-all duration-300" required />
+                <p id="email-error-msg" class="text-red-600 text-sm mt-2 hidden">⚠️ Please enter a valid email address</p>
+              </div>
+
+              <textarea id="message" class="textarea textarea-bordered w-full" rows="4" placeholder="Your Message" required></textarea>
+              <button type="submit" class="btn bg-[#2C3A35] text-white hover:bg-[#1e2824] btn-lg w-fit self-end px-10 shadow-lg">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
   <!-- FOOTER -->
-  <footer id="main-footer" class="bg-[#2C3A35] text-[#F5EFE6] pt-24 pb-12 px-6 hidden relative overflow-hidden">
+  <footer id="main-footer" class="bg-[#2C3A35] text-[#F5EFE6] pt-24 pb-12 px-6 md:px-12 xl:px-24 hidden relative overflow-hidden">
 
     <div class="absolute -top-20 -left-32 w-[500px] h-[500px] bg-[#D6BA73]/20 rounded-full blur-[120px] z-0"></div>
     <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[#DDB6B1]/20 rounded-full blur-[100px] z-0"></div>
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <div class="absolute w-1 h-1 bg-[#D6BA73] rounded-full top-[10%] left-[20%] animate-ping"></div>
+      <div class="absolute w-2 h-2 bg-[#DDB6B1] rounded-full top-[40%] left-[70%] animate-pulse"></div>
+    </div>
 
-    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-center md:text-left relative z-10" data-aos="fade-up">
-      <div class="space-y-4">
-        <h4 class="text-3xl font-extrabold text-white font-[Montserrat] tracking-wide animate-fade-in">VINTORA</h4>
-        <p class="text-base text-[#DDB6B1] leading-relaxed italic">Vision Into Real Art — bridging your ideas into visuals that speak.</p>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1.3fr_1fr_0.9fr_1.2fr] gap-6 text-center md:text-left relative z-10" data-aos="fade-up">
+      <div class="space-y-4 text-center md:text-left">
+        <img onclick="scrollToSection('main-section')" src="res/logo-white.png" alt="VINTORA Logo" class="mx-auto md:mx-0 w-16 md:w-12 lg:w-14 h-auto object-contain cursor-pointer" />
+        <h4 onclick="scrollToSection('main-section')" class="text-2xl md:text-3xl font-extrabold text-white font-[Montserrat] tracking-wide animate-fade-in cursor-pointer">VINTORA</h4>
+        <p class="text-sm md:text-base text-[#DDB6B1] leading-relaxed italic">Vision Into Real Art — bridging your ideas into visuals that speak.</p>
       </div>
-      <div class="space-y-3">
+      <div class="space-y-3 text-center md:text-left md:-mr-8 lg:-mr-10 xl:-mr-12 pr-0 md:pr-1">
         <h5 class="text-xl font-semibold text-white uppercase tracking-widest">Explore</h5>
         <ul class="space-y-1 text-[#F5EFE6]/90 font-medium">
-          <li><a onclick="scrollToSection('main-section')" class="hover:text-[#D6BA73] transition">Home</a></li>
-          <li><a onclick="scrollToSection('profile-section')" class="hover:text-[#D6BA73] transition">Profile</a></li>
-          <li><a onclick="scrollToSection('services-section')" class="hover:text-[#D6BA73] transition-all duration-300 hover:underline underline-offset-4 decoration-[#D6BA73]">Services</a></li>
-          <li><a onclick="scrollToSection('portofolio-section')" class="hover:text-[#D6BA73] transition-all duration-300 hover:underline underline-offset-4 decoration-[#D6BA73]">Portofolio</a></li>
-          <li><a onclick="scrollToSection('process-section')" class="hover:text-[#D6BA73] transition-all duration-300 hover:underline underline-offset-4 decoration-[#D6BA73]">Process</a></li>
-          <li><a onclick="scrollToSection('freebies-section')" class="hover:text-[#D6BA73] transition-all duration-300 hover:underline underline-offset-4 decoration-[#D6BA73]">Freebies</a></li>
-          <li><a onclick="scrollToSection('contact-section')" class="hover:text-[#D6BA73] transition">Contact</a></li>
+          <li><a onclick="scrollToSection('main-section')" class="relative inline-block cursor-pointer font-medium text-[#F5EFE6]/90 transition-all duration-300 ease-in-out hover:text-[#D6BA73] hover:scale-[1.05] hover:tracking-wider hover:drop-shadow-glow after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[#D6BA73] after:transition-all after:duration-300 hover:after:w-full">Home</a></li>
+          <li><a onclick="scrollToSection('profile-section')" class="relative inline-block cursor-pointer font-medium text-[#F5EFE6]/90 transition-all duration-300 ease-in-out hover:text-[#D6BA73] hover:scale-[1.05] hover:tracking-wider hover:drop-shadow-glow after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[#D6BA73] after:transition-all after:duration-300 hover:after:w-full">Profile</a></li>
+          <li><a onclick="scrollToSection('services-section')" class="relative inline-block cursor-pointer font-medium text-[#F5EFE6]/90 transition-all duration-300 ease-in-out hover:text-[#D6BA73] hover:scale-[1.05] hover:tracking-wider hover:drop-shadow-glow after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[#D6BA73] after:transition-all after:duration-300 hover:after:w-full">Services</a></li>
+          <li><a onclick="scrollToSection('portofolio-section')" class="relative inline-block cursor-pointer font-medium text-[#F5EFE6]/90 transition-all duration-300 ease-in-out hover:text-[#D6BA73] hover:scale-[1.05] hover:tracking-wider hover:drop-shadow-glow after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[#D6BA73] after:transition-all after:duration-300 hover:after:w-full">Portofolio</a></li>
+          <li><a onclick="scrollToSection('process-section')" class="relative inline-block cursor-pointer font-medium text-[#F5EFE6]/90 transition-all duration-300 ease-in-out hover:text-[#D6BA73] hover:scale-[1.05] hover:tracking-wider hover:drop-shadow-glow after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[#D6BA73] after:transition-all after:duration-300 hover:after:w-full">Process</a></li>
+          <li><a onclick="scrollToSection('freebies-section')" class="relative inline-block cursor-pointer font-medium text-[#F5EFE6]/90 transition-all duration-300 ease-in-out hover:text-[#D6BA73] hover:scale-[1.05] hover:tracking-wider hover:drop-shadow-glow after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[#D6BA73] after:transition-all after:duration-300 hover:after:w-full">Freebies</a></li>
+          <li><a onclick="scrollToSection('contact-section')" class="relative inline-block cursor-pointer font-medium text-[#F5EFE6]/90 transition-all duration-300 ease-in-out hover:text-[#D6BA73] hover:scale-[1.05] hover:tracking-wider hover:drop-shadow-glow after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-[2px] after:bg-[#D6BA73] after:transition-all after:duration-300 hover:after:w-full">Contact</a></li>
         </ul>
       </div>
       <div class="space-y-3">
         <h5 class="text-xl font-semibold text-white uppercase tracking-widest">Connect</h5>
-        <p class="flex items-center gap-2 text-[#F5EFE6]/90">📩 vintoradesign@gmail.com</p>
-        <p class="text-[#F5EFE6]/90">📸 Instagram: <a href="https://www.instagram.com/vintora.design/" target="_blank" class="transition text-[#F5EFE6]/90 hover:text-[#D6BA73]">@vintora.design</a></p>
+        
+        <p class="flex justify-center md:justify-start items-center gap-2 text-[#F5EFE6]/90"><a href="mailto:vintoradesign@gmail.com" class="relative flex items-center gap-2 text-base text-[#F5EFE6] hover:text-[#D6BA73] transition duration-300 group"><span class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#D6BA73] transition-all duration-300 group-hover:w-full"></span><svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.75 5.25L3 6V18L3.75 18.75H20.25L21 18V6L20.25 5.25H3.75ZM4.5 7.6955V17.25H19.5V7.69525L11.9999 14.5136L4.5 7.6955ZM18.3099 6.75H5.68986L11.9999 12.4864L18.3099 6.75Z" fill="#F5EFE6"></path></g></svg><span class="relative z-10">Email</span></a></p>
+
+        <p class="flex items-center gap-2 justify-center md:justify-start text-[#F5EFE6]/90"><a href="https://www.instagram.com/vintora.design/" target="_blank" class="relative flex items-center gap-2 text-base text-[#F5EFE6] hover:text-[#D6BA73] transition duration-300 group"><span class="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#D6BA73] transition-all duration-300 group-hover:w-full"></span><svg class="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="#F5EFE6"></path> <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="#F5EFE6"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="#F5EFE6"></path> </g></svg><span class="relative z-10">Instagram</span></a></p>
       </div>
-      <div class="flex flex-col items-center md:items-start gap-4">
-        <h5 class="text-xl font-semibold text-white uppercase tracking-widest">Join Us</h5>
+      <div class="p-6 bg-[#F5EFE6]/5 backdrop-blur-md rounded-2xl border border-[#F5EFE6]/10 shadow-lg relative hover:scale-[1.02] transition-transform duration-300">
+        <h5 class="text-xl font-bold text-[#F5EFE6] mb-3">Join Us</h5>
         <button class="btn btn-sm bg-[#D6BA73] hover:bg-[#c2a350] text-[#2C3A35] font-bold rounded-full shadow-lg hover:scale-105 transition-transform duration-300 px-6">Subscribe</button>
-        <p class="text-xs text-[#DDB6B1] italic animate-pulse-soft">Stay inspired. Get exclusive updates.</p>
+        <p class="text-xs text-[#DDB6B1] italic animate-pulse-soft mt-4">Stay inspired. Get exclusive updates.</p>
       </div>
     </div>
     <div class="text-center text-sm text-[#DDB6B1] mt-16 border-t border-[#F5EFE6]/10 pt-6 relative z-10">© 2025 VINTORA. All rights reserved.</div>

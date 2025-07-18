@@ -134,6 +134,12 @@ document.addEventListener("DOMContentLoaded", () => {
       emailErrorMsg.textContent = "⚠️ Please enter a valid email address";
       emailErrorMsg.classList.remove("hidden");
       emailInput.focus();
+
+      emailInput.classList.add("shake");
+      setTimeout(() => {
+        emailInput.classList.remove("shake");
+      }, 500);
+
       return;
     }
 
@@ -223,6 +229,12 @@ document.addEventListener("DOMContentLoaded", () => {
         emailInput.classList.add("input-error");
         emailError.classList.remove("hidden");
         emailInput.focus();
+
+        emailInput.classList.add("shake");
+        setTimeout(() => {
+          emailInput.classList.remove("shake");
+        }, 500);
+        
         return;
       }
 
