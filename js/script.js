@@ -252,6 +252,27 @@ document.addEventListener("DOMContentLoaded", () => {
       parallaxBg.style.transform = `translateY(${offset * 0.3}px)`;
     });
   }
+
+  const menuToggle = document.getElementById("menu-toggle");
+  const dropdownMenu = document.getElementById("mobile-dropdown");
+  let isMenuOpen = false;
+
+  menuToggle?.addEventListener("click", () => {
+    isMenuOpen = !isMenuOpen;
+    menuToggle.textContent = isMenuOpen ? "✕" : "☰";
+    if (dropdownMenu) {
+      dropdownMenu.classList.toggle("hidden");
+    }
+  });
+
+  const dropdownLinks = dropdownMenu?.querySelectorAll("a");
+  dropdownLinks?.forEach(link => {
+    link.addEventListener("click", () => {
+      isMenuOpen = false;
+      menuToggle.textContent = "☰";
+      dropdownMenu?.classList.add("hidden");
+    });
+  });
 });
 
 window.addEventListener("load", () => {

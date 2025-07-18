@@ -24,26 +24,28 @@
 <body class="bg-[#F5EFE6] font-[Poppins]">
 
   <!-- HEADER (hidden before login) -->
-  <header id="main-header" class="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-white/70 border-b border-[#e5e5e5] shadow-xl hidden">
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-white/80 border-b border-[#e5e5e5] shadow-lg hidden">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
       <a href="/" class="flex items-center gap-3">
-        <img src="res/logo.png" alt="VINTORA Logo" class="h-10 w-auto transition-all duration-300 hover:scale-105 drop-shadow-sm">
-        <span class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-wide text-[#2C3A35] font-[Montserrat]">VINTORA</span>
+        <img src="res/logo.png" alt="VINTORA Logo" class="h-10 w-auto hover:scale-105 transition-transform">
+        <span class="text-xl lg:text-2xl font-bold tracking-wide text-[#2C3A35] font-[Montserrat]">VINTORA</span>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-[#2C3A35]">
-        <a onclick="scrollToSection('main-section')" class="hover:underline">Home</a>
-        <a onclick="scrollToSection('profile-section')" class="hover:underline">Profile</a>
-        <a onclick="scrollToSection('services-section')" class="hover:underline">Services</a>
-        <a onclick="scrollToSection('portofolio-section')" class="hover:underline">Portofolio</a>
-        <a onclick="scrollToSection('process-section')" class="hover:underline">Process</a>
-        <a onclick="scrollToSection('freebies-section')" class="hover:underline">Freebies</a>
-        <a onclick="scrollToSection('contact-section')" class="hover:underline">Contact</a>
-        <button onclick="logout()" class="btn btn-sm bg-[#2C3A35] hover:bg-[#1e2824] text-white px-6 rounded-full">Logout</button>
+      <nav class="hidden md:flex items-center gap-3">
+        <ul class="flex space-x-4 font-semibold text-sm text-[#2C3A35] nav-links">
+          <li><a href="#" onclick="scrollToSection('main-section'); return false;" class="nav-link">Home</a></li>
+          <li><a href="#" onclick="scrollToSection('profile-section'); return false;" class="nav-link">Profile</a></li>
+          <li><a href="#" onclick="scrollToSection('services-section'); return false;" class="nav-link">Services</a></li>
+          <li><a href="#" onclick="scrollToSection('portofolio-section'); return false;" class="nav-link">Portofolio</a></li>
+          <li><a href="#" onclick="scrollToSection('process-section'); return false" class="nav-link">Process</a></li>
+          <li><a href="#" onclick="scrollToSection('freebies-section'); return false" class="nav-link">Freebies</a></li>
+          <li><a href="#" onclick="scrollToSection('contact-section'); return false" class="nav-link">Contact</a></li>
+        </ul>
+        <button onclick="logout()" class="btn btn-sm bg-[#2C3A35] hover:bg-[#1e2824] text-white px-6 ml-4 rounded-full">Logout</button>
       </nav>
 
       <div class="dropdown dropdown-end md:hidden">
-        <label tabindex="0" class="btn btn-ghost text-xl">☰</label>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1000] p-4 shadow-xl bg-white rounded-box w-56 text-[#2C3A35] font-medium">
+        <label id="menu-toggle" tabindex="0" class="btn btn-ghost text-xl cursor-pointer">☰</label>
+        <ul id="mobile-dropdown" tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1000] p-4 shadow-xl bg-white rounded-box w-56 text-[#2C3A35] font-medium hidden">
           <li><a onclick="scrollToSection('main-section')" class="hover:text-[#D6BA73]">Home</a></li>
           <li><a onclick="scrollToSection('profile-section')" class="hover:text-[#D6BA73]">Profile</a></li>
           <li><a onclick="scrollToSection('services-section')" class="hover:text-[#D6BA73]">Services</a></li>

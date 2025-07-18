@@ -59,19 +59,30 @@ body::-webkit-scrollbar-thumb {
 
 .menu-underline a {
   position: relative;
-  font-weight: 500;
-  padding-bottom: 4px;
+  display: inline-block;
+  padding: 6px 4px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #2C3A35;
 }
+
+.menu-underline a:hover {
+  color: #D6BA73; /* warna aksen VINTORA */
+  transform: scale(1.05);
+  text-shadow: 0 1px 6px rgba(214, 186, 115, 0.4); /* efek glow lembut */
+}
+
 .menu-underline a::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 2px;
   width: 0;
-  background-color: var(--soft-gold);
-  transition: width 0.3s ease;
+  height: 2px;
+  background: linear-gradient(90deg, #D6BA73, #d3a442);
+  transition: width 0.3s ease-in-out;
 }
+
 .menu-underline a:hover::after {
   width: 100%;
 }
@@ -172,4 +183,56 @@ body::-webkit-scrollbar-thumb {
   margin-top: 0.25rem;
   padding-left: 0.5rem;
   font-weight: 500;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (min-width: 768px) {
+  .nav-links a {
+    position: relative;
+    padding: 6px 4px;
+    display: inline-block;
+    color: #2C3A35;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover {
+    color: #D6BA73;
+    transform: scale(1.05);
+    text-shadow: 0 2px 6px rgba(214, 186, 115, 0.25);
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #D6BA73, #e8cb8b);
+    transition: width 0.3s ease-in-out;
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+}
+
+.navbar-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.navbar-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
