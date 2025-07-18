@@ -44,8 +44,8 @@
       </nav>
 
       <div class="dropdown dropdown-end md:hidden">
-        <label id="menu-toggle" tabindex="0" class="btn btn-ghost text-xl cursor-pointer">☰</label>
-        <ul id="mobile-dropdown" tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1000] p-4 shadow-xl bg-white rounded-box w-56 text-[#2C3A35] font-medium hidden">
+        <label id="menu-toggle" tabindex="0" class="btn btn-ghost text-xl cursor-pointer relative w-8 h-8 flex items-center justify-center transition duration-300 ease-in-out"><span id="menu-icon" class="transition duration-300 ease-in-out transform scale-100">☰</span></label>
+        <ul id="mobile-dropdown" tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1000] p-4 shadow-xl bg-white rounded-box w-56 text-[#2C3A35] font-medium hidden transition-all duration-300 ease-in-out transform opacity-0 scale-95">
           <li><a onclick="scrollToSection('main-section')" class="hover:text-[#D6BA73]">Home</a></li>
           <li><a onclick="scrollToSection('profile-section')" class="hover:text-[#D6BA73]">Profile</a></li>
           <li><a onclick="scrollToSection('services-section')" class="hover:text-[#D6BA73]">Services</a></li>

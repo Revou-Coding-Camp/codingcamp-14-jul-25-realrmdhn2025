@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           emailInput.classList.remove("shake");
         }, 500);
-        
+
         return;
       }
 
@@ -266,24 +266,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const menuToggle = document.getElementById("menu-toggle");
+  const menuIcon = document.getElementById("menu-icon");
   const dropdownMenu = document.getElementById("mobile-dropdown");
   let isMenuOpen = false;
 
-  menuToggle?.addEventListener("click", () => {
+  menuToggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
     isMenuOpen = !isMenuOpen;
-    menuToggle.textContent = isMenuOpen ? "✕" : "☰";
+
+    menuIcon.classList.add("opacity-0", "scale-95");
+    setTimeout(() => {
+      menuIcon.textContent = isMenuOpen ? "✕" : "☰";
+      menuIcon.classList.remove("opacity-0", "scale-95");
+      menuIcon.classList.add("opacity-100", "scale-100");
+    }, 150);
+
     if (dropdownMenu) {
-      dropdownMenu.classList.toggle("hidden");
+      if (isMenuOpen) {
+        dropdownMenu.classList.remove("hidden");
+        setTimeout(() => {
+          dropdownMenu.classList.add("opacity-100", "scale-100");
+          dropdownMenu.classList.remove("opacity-0", "scale-95");
+        }, 10);
+      } else {
+        dropdownMenu.classList.add("opacity-0", "scale-95");
+        dropdownMenu.classList.remove("opacity-100", "scale-100");
+        setTimeout(() => {
+          dropdownMenu.classList.add("hidden");
+        }, 300);
+      }
     }
   });
 
-  const dropdownLinks = dropdownMenu?.querySelectorAll("a");
-  dropdownLinks?.forEach(link => {
-    link.addEventListener("click", () => {
+  document.addEventListener("click", (event) => {
+    const isClickInsideMenu = dropdownMenu?.contains(event.target);
+    const isClickOnToggle = menuToggle?.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnToggle && isMenuOpen) {
       isMenuOpen = false;
-      menuToggle.textContent = "☰";
-      dropdownMenu?.classList.add("hidden");
-    });
+
+      menuIcon.classList.add("opacity-0", "scale-95");
+      setTimeout(() => {
+        menuIcon.textContent = "☰";
+        menuIcon.classList.remove("opacity-0", "scale-95");
+        menuIcon.classList.add("opacity-100", "scale-100");
+      }, 150);
+
+      dropdownMenu?.classList.add("opacity-0", "scale-95");
+      dropdownMenu?.classList.remove("opacity-100", "scale-100");
+      setTimeout(() => {
+        dropdownMenu?.classList.add("hidden");
+      }, 300);
+    }
   });
 
   const profileHeading = document.getElementById("profile-heading");
