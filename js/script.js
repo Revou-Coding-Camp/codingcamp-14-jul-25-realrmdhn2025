@@ -358,6 +358,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(profileHeading);
   }
+
+  const processSection = document.getElementById("process-section");
+  const steps = [
+    document.getElementById("step-1"),
+    document.getElementById("step-2"),
+    document.getElementById("step-3"),
+    document.getElementById("step-4"),
+  ];
+
+  const progressLine = document.getElementById("progress-line");
+
+  if (progressLine && steps.every(Boolean)) {
+    const processSection = document.getElementById("process-section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateSteps();
+          } else {
+            resetSteps();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(processSection);
+
+    function animateSteps() {
+      const durations = [0, 1000, 2000, 3000];
+
+      steps.forEach((step, i) => {
+        setTimeout(() => {
+          step.classList.add("step-visible");
+          const widthPercent = (i + 1) * 25;
+          progressLine.style.width = `${widthPercent}%`;
+        }, durations[i]);
+      });
+    }
+
+    function resetSteps() {
+      steps.forEach((step) => {
+        step.classList.remove("step-visible");
+      });
+      progressLine.style.width = "0%";
+    }
+  }
 });
 
 window.addEventListener("load", () => {

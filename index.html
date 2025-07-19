@@ -26,7 +26,7 @@
   <!-- HEADER (hidden before login) -->
   <header id="main-header" class="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-white/80 border-b border-[#e5e5e5] shadow-lg hidden">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-      <a href="/" class="flex items-center gap-3">
+      <a href="https://revou-coding-camp.github.io/codingcamp-14-jul-25-realrmdhn2025/" class="flex items-center gap-3">
         <img src="res/logo.png" alt="VINTORA Logo" class="h-10 w-auto hover:scale-105 transition-transform">
         <span class="text-xl lg:text-2xl font-bold tracking-wide text-[#2C3A35] font-[Montserrat]">VINTORA</span>
       </a>
@@ -62,7 +62,7 @@
   <!-- LOGIN SECTION -->
   <section id="login-section" class="min-h-screen flex items-center justify-center px-6 py-24 text-center relative overflow-hidden">
     <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#D6BA73]/10 via-white to-[#F5EFE6] opacity-90"></div>
-    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1589571894960-20bbe2828d0d?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center opacity-10"></div>
+    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1739729867056-94e62e70de1c?q=80&w=865&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-15"></div>
     <div class="relative max-w-4xl w-full p-12 glass-card shadow-2xl rounded-3xl backdrop-blur-lg" data-aos="zoom-in">
       <h1 class="text-6xl font-extrabold text-[#2C3A35] font-[Montserrat] leading-tight mb-6">
         Welcome to <span class="text-[#D6BA73] animate-pulse">VINTORA</span>
@@ -80,13 +80,13 @@
   <main id="page-content" class="hidden">
 
     <!-- GREETING -->
-    <section id="main-section" class="relative text-center rounded-t-3xl isolate h-screen flex items-center justify-center z-0 overflow-hidden">
-      <div id="parallax-bg" class="absolute inset-0 z-[-2] bg-[url('https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=871&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center"></div>
+    <section id="main-section" class="relative text-center isolate h-screen flex items-center justify-center overflow-hidden rounded-t-3xl z-0">
+      <div id="parallax-bg" class="absolute inset-0 z-[-3] bg-cover bg-center scale-[1.2] transition-opacity duration-700 ease-in-out" style="background-image: url('https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=871');"></div>
 
-      <div class="absolute inset-0 bg-white/75 backdrop-blur-md z-[-1]"></div>
+      <div class="absolute inset-0 z-[-2] bg-gradient-to-tr from-[#ffffffcc] to-[#f0f0f0aa] backdrop-blur-md z-[-1] animate-gradient-flow"></div>
 
-      <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="1200">
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#2C3A35] font-[Montserrat] text-shadow-soft tracking-wide animate-fade-in">Hi, <span id="user-name">...</span> 👋</h2>
+      <div class="relative z-10 max-w-3xl mx-auto" data-aos="zoom-in" data-aos-duration="1200">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#2C3A35] font-[Montserrat] text-shadow-glow tracking-wide animate-slide-pop">Hi, <span id="user-name">...</span> 👋</h2>
 
         <div class="w-16 sm:w-20 h-[3px] bg-[#2C3A35] rounded-full mx-auto mt-8 mb-8 animate-pulse-soft shadow-md"></div>
         
@@ -94,8 +94,8 @@
 
         <!-- CTA BUTTONS -->
         <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-300">
-          <button onclick="scrollToSection('profile-section')" class="btn border border-[#2C3A35] text-[#2C3A35] px-8 py-3 rounded-full hover:bg-[#2C3A35] hover:text-white transition-transform hover:scale-105 shadow-md">Explore Profile</button>
-          <button onclick="scrollToSection('contact-section')" class="btn border border-[#2C3A35] text-[#2C3A35] px-8 py-3 rounded-full hover:bg-[#2C3A35] hover:text-white transition-transform hover:scale-105 shadow-md">Get in Touch</button>
+          <button onclick="scrollToSection('profile-section')" class="btn btn-morph border border-[#2C3A35] text-[#2C3A35] shadow-md">Explore Profile</button>
+          <button onclick="scrollToSection('contact-section')" class="btn btn-morph border border-[#2C3A35] text-[#2C3A35] shadow-md">Get in Touch</button>
         </div>
       </div>
     </section>
@@ -246,29 +246,50 @@
     </section>
 
     <!-- PROCESS SECTION -->
-    <section id="process-section" class="bg-[#F5EFE6] px-6 py-28">
-      <div class="max-w-5xl mx-auto text-center" data-aos="fade-up">
-        <h2 class="text-4xl font-bold font-[Montserrat] text-[#2C3A35] mb-12">How We Work</h2>
-        <div class="grid md:grid-cols-4 gap-6 text-[#2C3A35]">
-          <div data-aos="fade-up" data-aos-delay="100">
-            <div class="text-4xl font-bold text-[#D6BA73] mb-3">1</div>
-            <h4 class="text-xl font-semibold">Discover</h4>
-            <p class="text-sm">Understanding your vision and goals</p>
+    <section id="process-section" class="relative bg-[#F5EFE6] py-28 px-6 overflow-hidden">
+      <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+        <h2 class="text-5xl font-extrabold font-[Montserrat] text-[#2C3A35] mb-20 tracking-tight">How We Work</h2>
+
+        <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-16 md:gap-8">
+
+          <div id="progress-line" class="absolute hidden md:block top-1/2 left-0 h-[4px] bg-[#D6BA73] z-10 transition-all duration-500 ease-out" style="width: 0%;"></div>
+
+          <div id="step-1" class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/4">
+            <div>
+              <div class="w-16 h-16 flex items-center justify-center text-white bg-[#D6BA73] rounded-full shadow-xl text-2xl font-bold transition-all hover:scale-110 hover:rotate-1 duration-300">1</div>
+            </div>
+            <div class="mt-4 flex flex-col justify-between h-full">
+              <h4 class="text-xl font-semibold mt-4 text-[#2C3A35]">Discover</h4>
+              <p class="text-sm mt-2 text-[#2C3A35]/80">Understanding your vision and goals</p>
+            </div>
           </div>
-          <div data-aos="fade-up" data-aos-delay="200">
-            <div class="text-4xl font-bold text-[#D6BA73] mb-3">2</div>
-            <h4 class="text-xl font-semibold">Design</h4>
-            <p class="text-sm">Creative concepts and visual development</p>
+
+          <div id="step-2" class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/4">
+            <div class="w-16 h-16 flex items-center justify-center text-white bg-[#D6BA73] rounded-full shadow-xl text-2xl font-bold transition-all hover:scale-110 hover:rotate-1 duration-300">2</div>
+            <div class="mt-4 flex flex-col justify-between h-full">
+              <h4 class="text-xl font-semibold mt-4 text-[#2C3A35]">Design</h4>
+              <p class="text-sm mt-2 text-[#2C3A35]/80">Creative concepts and visual development</p>
+            </div>
           </div>
-          <div data-aos="fade-up" data-aos-delay="300">
-            <div class="text-4xl font-bold text-[#D6BA73] mb-3">3</div>
-            <h4 class="text-xl font-semibold">Deliver</h4>
-            <p class="text-sm">Final assets crafted to perfection</p>
+
+          <div id="step-3" class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/4">
+            <div>
+              <div class="w-16 h-16 flex items-center justify-center text-white bg-[#D6BA73] rounded-full shadow-xl text-2xl font-bold transition-all hover:scale-110 hover:rotate-2 duration-300">3</div>
+            </div>
+            <div class="mt-4 flex flex-col justify-between h-full">
+              <h4 class="text-xl font-semibold mt-4 text-[#2C3A35]">Deliver</h4>
+              <p class="text-sm mt-2 text-[#2C3A35]/80">Final assets crafted to perfection</p>
+            </div>
           </div>
-          <div data-aos="fade-up" data-aos-delay="400">
-            <div class="text-4xl font-bold text-[#D6BA73] mb-3">4</div>
-            <h4 class="text-xl font-semibold">Evolve</h4>
-            <p class="text-sm">Support and growth beyond the launch</p>
+
+          <div id="step-4" class="relative z-10 flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/4">
+            <div>
+              <div class="w-16 h-16 flex items-center justify-center text-white bg-[#D6BA73] rounded-full shadow-xl text-2xl font-bold transition-all hover:scale-110 hover:-rotate-2 duration-300">4</div>
+            </div>
+            <div class="mt-4 flex flex-col justify-between h-full">
+              <h4 class="text-xl font-semibold mt-4 text-[#2C3A35]">Evolve</h4>
+              <p class="text-sm mt-2 text-[#2C3A35]/80">Support and growth beyond the launch</p>
+            </div>
           </div>
         </div>
       </div>
@@ -391,7 +412,7 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>AOS.init();</script>
-  <script src="js/script.js"></script>
+  <script src="js/script.js" defer></script>
 </body>
 
 </html>
