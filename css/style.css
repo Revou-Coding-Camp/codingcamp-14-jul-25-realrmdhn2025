@@ -383,11 +383,6 @@ body::-webkit-scrollbar-thumb {
   transition: opacity 1s ease, transform 1s ease;
 }
 
-#process-section [id^="step-"] {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
 #process-section .step-visible {
   opacity: 1 !important;
   transform: translateY(0) !important;

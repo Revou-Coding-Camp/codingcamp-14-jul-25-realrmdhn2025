@@ -372,13 +372,14 @@ document.addEventListener("DOMContentLoaded", () => {
   if (progressLine && steps.every(Boolean)) {
     const processSection = document.getElementById("process-section");
 
+    let hasAnimated = false;
+    
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && !hasAnimated) {
             animateSteps();
-          } else {
-            resetSteps();
+            hasAnimated = true;
           }
         });
       },
