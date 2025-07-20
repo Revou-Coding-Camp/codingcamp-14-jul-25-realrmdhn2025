@@ -417,6 +417,73 @@ window.addEventListener("load", () => {
       globalLoader.style.display = "none";
     }, 700);
   }
+
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = [
+    { id: "main-section", name: "Home" },
+    { id: "profile-section", name: "Profile" },
+    { id: "services-section", name: "Services" },
+    { id: "portofolio-section", name: "Portofolio" },
+    { id: "process-section", name: "Process" },
+    { id: "freebies-section", name: "Freebies" },
+    { id: "contact-section", name: "Contact" },
+  ];
+
+  function highlightLink(linkText) {
+    navLinks.forEach((link) => {
+      const text = link.textContent.trim();
+
+      const spanBg = link.querySelector(".highlight-bg");
+      const spanText = link.querySelector(".highlight-text");
+
+      if (spanBg || spanText) {
+        link.innerHTML = link.textContent.trim();
+      }
+
+      if (text === linkText) {
+        link.classList.add("relative", "z-10", "group", "inline-flex", "items-center", "justify-center");
+        link.innerHTML = `
+          <span class="absolute inset-0 -z-10 bg-[#D6BA73] rounded-xl px-2 py-1 transition-transform duration-300 ease-out transform scale-[1.15] group-hover:scale-[1.18] animated-border"></span>
+          <span class="relative z-10 text-[#1B1B1B] font-semibold tracking-wide group-hover:scale-[1.05] transition-transform duration-300">${link.textContent.trim()}</span>
+        `;
+      } else {
+        link.classList.remove("relative", "z-10", "group");
+        link.innerHTML = text;
+      }
+    });
+  }
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach((section) => {
+      const el = document.getElementById(section.id);
+      if (el && window.scrollY >= el.offsetTop - 100) {
+        current = section.name;
+      }
+    });
+    highlightLink(current);
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const href = link.getAttribute("href");
+      const targetId = href && href.startsWith("#") ? href.substring(1) : null;
+      const targetElement = targetId ? document.getElementById(targetId) : null;
+
+      if (targetElement) {
+        document.documentElement.style.scrollBehavior = "auto";
+        targetElement.scrollIntoView({ behavior: "auto" });
+        setTimeout(() => {
+          document.documentElement.style.scrollBehavior = "";
+        }, 50);
+        
+        const text = link.textContent.trim();
+        highlightLink(text);
+      }
+    });
+  });
 });
 
 function scrollToTop() {
