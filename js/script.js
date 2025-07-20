@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Animate greeting
       userNameDisplay.textContent = name;
       mainSection.scrollIntoView({ behavior: "smooth" });
-      mainSection.classList.add("fade-in-up");
+      mainSection.classList.add("animate-fade-in", "animate-slide-pop");
       userNameDisplay.classList.add("animate-pulse-soft");
 
       setTimeout(() => {
