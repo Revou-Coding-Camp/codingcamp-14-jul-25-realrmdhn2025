@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!name) {
       usernameInput.classList.add("input-error");
       usernameInput.focus();
-      usernameInput.placeholder = "Name is required!";
+      usernameInput.placeholder = "Please Enter Your Name!";
       return;
     }
 

@@ -62,19 +62,25 @@
   </header>
 
   <!-- LOGIN SECTION -->
-  <section id="login-section" class="min-h-screen flex items-center justify-center px-6 py-24 text-center relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-[#D6BA73]/10 via-white to-[#F5EFE6] opacity-90"></div>
-    <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1739729867056-94e62e70de1c?q=80&w=865&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-15"></div>
-    <div class="relative max-w-4xl w-full p-12 glass-card shadow-2xl rounded-3xl backdrop-blur-lg" data-aos="zoom-in">
-      <h1 class="text-6xl font-extrabold text-[#2C3A35] font-[Montserrat] leading-tight mb-6">
-        Welcome to <span class="text-[#D6BA73] animate-pulse">VINTORA</span>
-      </h1>
-      <p class="text-[#2C3A35]/80 text-lg mb-10">Enter your name to unlock the future of visual identity.</p>
-      <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
-        <input type="text" id="username" placeholder="Enter your name" class="input input-bordered input-lg w-full max-w-xs input-custom" />
-        <button id="login-btn" class="btn btn-lg bg-[#2C3A35] text-white hover:bg-[#1e2824] shadow-lg btn-custom">LOGIN</button>
+  <section id="login-section" class="min-h-screen flex items-center justify-center px-6 py-24 relative bg-gradient-to-br from-[#F5EFE6] via-white to-[#EDE8D4] overflow-hidden">
+
+    <div class="absolute inset-0 z-0 bg-gradient-to-br from-[#EEEBDD] via-[#F5EFE6] to-[#EDE8D4] opacity-[0.85] bg-[url('https://images.unsplash.com/photo-1739729867056-94e62e70de1c?q=80&w=865&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center opacity-10 z-0"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-[#D6BA73]/20 to-transparent blur-3xl z-0"></div>
+
+    <div class="relative z-10 max-w-3xl w-full p-10 md:p-14 rounded-[2.5rem] bg-white/60 backdrop-blur-xl border border-white/20 shadow-2xl" data-aos="fade-up" data-aos-duration="1000">
+      <div class="text-center mb-10">
+        <h1 class="text-5xl font-extrabold font-[Montserrat] text-[#2C3A35] leading-tight">
+          <span class="text-[#2C3A35]/80">Welcome to</span>
+          <span class="text-[#D6BA73] animate-pulse">VINTORA</span>
+        </h1>
+        <p class="mt-4 text-[#2C3A35]/70 text-base md:text-lg italic">Visualize Into Reality ✨</p>
       </div>
-      <div class="mt-8 text-sm text-[#6b6b6b] italic animate-pulse-soft">Let's turn your vision into real art 🖌️</div>
+
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+        <input type="text" id="username" placeholder="Enter your name" class="input input-lg w-full md:max-w-sm rounded-2xl input-bordered bg-white/80 focus:outline-none focus:ring-2 focus:ring-[#D6BA73] placeholder:text-[#888] font-medium text-[#2C3A35]" />
+        <button id="login-btn" class="btn btn-lg bg-[#2C3A35] text-white hover:bg-[#1e2824] shadow-lg btn-custom"> <i class="fas fa-arrow-right-to-bracket mr-2"></i>LOGIN</button>
+      </div>
+      <div class="mt-10 text-center text-sm text-[#555] italic animate-pulse-soft">Let's turn your vision into real art 🖌️</div>
     </div>
   </section>
 
